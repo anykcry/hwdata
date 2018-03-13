@@ -58,4 +58,11 @@ public class UserApi {
 		
 	}
 
+	private String getTestName(String id){
+
+	    return id+"----ok";
+	}
+
+
+
 }
