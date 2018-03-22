@@ -17,6 +17,8 @@ import org.springframework.test.util.ReflectionTestUtils;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -56,6 +58,8 @@ public class UserApiOtherTest extends ApiTestUtil {
 //
 //        when(mockedBookDAL.updateBook(book1)).thenReturn(book1.getIsbn());
         ReflectionTestUtils.setField(userService, "userDao", userDao);
+
+
 
     }
 

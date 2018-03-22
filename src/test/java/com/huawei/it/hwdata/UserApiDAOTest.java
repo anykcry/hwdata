@@ -4,8 +4,10 @@ import com.huawei.it.hwdata.dao.UserDao;
 import com.huawei.it.hwdata.service.UserService;
 import com.huawei.it.hwdata.util.ApiTestUtil;
 import com.huawei.it.hwdata.vo.UserVo;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.stubVoid;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -43,8 +50,16 @@ public class UserApiDAOTest {
         u2.setId(123l);
         u2.setAddress("中不构晥人");
 
+
+
+
         when(userDao.getDetail()).thenReturn(Arrays.asList(u1,u2));
         when(userDao.findById("123")).thenReturn(u2);
+
+
+
+
+
 
     }
 
@@ -52,11 +67,11 @@ public class UserApiDAOTest {
     public void getdetail(){
 
         List<UserVo> list = userDao.getDetail();
-
         for(UserVo vo : list){
 
             System.out.println(vo.getAddress());
         }
+        verify(userDao).getDetail();
 
     }
 
@@ -64,6 +79,7 @@ public class UserApiDAOTest {
     public void findById(){
 
         UserVo list = userDao.findById("123");
+        verify(userDao).findById(anyString());
         System.out.println(list.getAddress());
 
     }
