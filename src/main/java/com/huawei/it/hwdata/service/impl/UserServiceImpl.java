@@ -16,9 +16,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 
-	public void save(UserVo vo) {
-		// TODO Auto-generated method stub
-		
+	public boolean save(UserVo vo) {
+		return false;
 	}
 
 	public void update(UserVo vo) {
@@ -37,4 +36,7 @@ public class UserServiceImpl implements UserService {
 		 
 	}
 
+	public UserVo findById(String id) {
+		return userDao.findById(id);
+	}
 }

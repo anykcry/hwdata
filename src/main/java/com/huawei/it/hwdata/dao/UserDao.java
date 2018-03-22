@@ -13,4 +13,5 @@ public interface UserDao {
     public void update(UserVo vo);
     public void delete(String id);
     public List<UserVo> getDetail();
+    public UserVo findById(String id);
 }

@@ -51,5 +51,8 @@ public class ApiTestUtil extends AbstractJUnit4SpringContextTests {
 
     }
 
+    //鉴权方法
+    //获取token
+
 
 }

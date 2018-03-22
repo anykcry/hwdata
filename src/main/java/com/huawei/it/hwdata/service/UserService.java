@@ -6,9 +6,10 @@ import com.huawei.it.hwdata.vo.UserVo;
 
 public interface UserService {
 	
-	public void save(UserVo vo);
+	public boolean save(UserVo vo);
     public void update(UserVo vo);
     public void delete(String id);
     public List<UserVo> getDetail();
+    public UserVo findById(String id);
 
 }
