@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +36,8 @@ public class UserApiDAOTest {
     private UserVo u1;
     private UserVo u2;
 
+    private List<UserVo> userList;
+
     @Before
     public void bef(){
         userDao = Mockito.mock(UserDao.class);
@@ -50,7 +53,9 @@ public class UserApiDAOTest {
         u2.setId(123l);
         u2.setAddress("中不构晥人");
 
-
+        userList = new ArrayList<>();
+        userList.add(u1);
+        userList.add(u2);
 
 
         when(userDao.getDetail()).thenReturn(Arrays.asList(u1,u2));
@@ -60,6 +65,28 @@ public class UserApiDAOTest {
 
 
 
+
+    }
+
+    @Test
+    public void testlam() throws  Exception{
+
+
+
+        try{
+
+           // List<Double> cost = Arrays.asList(10.0, 20.0,30.0);
+           // double allCost = cost.stream().map(x -> x+x*0.05).reduce((sum,x) -> sum + x).get();
+
+
+           String kk = userList.stream().map(x->x.getAddress()+"").reduce((sum,x)->sum+x).get();
+
+
+           System.out.println("---->>>"+kk);
+        }catch (Exception e)
+        {
+
+        }
 
     }
 

@@ -1,12 +1,26 @@
 package com.huawei.it.hwdata.vo;
 
-public class UserVo {
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
+public class UserVo implements Cloneable{
 	
 	private long id;
 	private String userName;
 	private int age;
 	private String address;
-	
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date startTime;
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -32,6 +46,16 @@ public class UserVo {
 		this.address = address;
 	}
 	
-	
+	@Override
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		 
+	}
 
 }

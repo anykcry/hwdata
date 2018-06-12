@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Dao 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huawei.it.hwdata.dao.OrderDao" >
+  <resultMap id="userMap" type="com.huawei.it.hwdata.vo.OrderVo">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id"/>
+    <result column="orderName" property="order_name"  />
+    <result column="orderPrice" property="order_price" />
+    <result column="userId" property="userId"  />
+    
+  </resultMap>
+  
+  <insert id="insert">
+     insert into t_order(order_name,order_price,userId) values(#{orderName},#{orderPrice},#{userId})
+  </insert>
+  <update id="update">
+   update  t_user_tab set username=#{userName},
+              address=#{address},
+              age  = #{age}
+              
+              where id=#{id}
+  </update>
+  
+  <delete id="delete" parameterType="String">
+  
+    delete from t_user_tab where id=#{id}
+  
+  </delete>
+  
+  <select id="getDetail" resultMap="userMap">
+    select * from t_user_tab
+  </select>
+ 
+</mapper>

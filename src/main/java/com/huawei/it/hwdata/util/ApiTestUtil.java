@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = {DhbWebApplicationInitializer.class})
 //指定bean注入的配置文件
-@ContextConfiguration(locations = {"classpath*:config/spring/applicationContext.xml","classpath*:config/spring/spring-mvc.xml","classpath*:config/spring/spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath*:config/spring/applicationContext.xml","classpath*:config/spring/spring-mvc.xml"})
 public class ApiTestUtil extends AbstractJUnit4SpringContextTests {
 
 

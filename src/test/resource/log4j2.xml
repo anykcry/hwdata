@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="1800">
+    <Properties>
+        <Property name="logPath" >E:/logs</Property>
+    </Properties>
+ 
+    <Appenders>
+        <Console name="console">
+            <PatternLayout pattern="%d %-5p [%t] %m (%c:%F:%L) %n" />
+        </Console>
+        <RollingFile name="allFile" fileName="${logPath}/all.log" filePattern="${logPath}/all.log.%d{yyyy-MM-dd}" immediateFlush="true">
+                <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <PatternLayout pattern="%d %-5p [%t] %m (%c:%F:%L) %n" />
+        </RollingFile>
+    </Appenders>
+ 
+    <Loggers>
+        <Logger name="com.huawei.it.hwdata" level="debug"/>
+ 
+        <Root level="debug" includeLocation="false">
+            <AppenderRef ref="allFile"/>
+            <AppenderRef ref="console" />
+        </Root>
+ 
+    </Loggers>
+</Configuration>

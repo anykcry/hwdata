@@ -22,6 +22,7 @@ public class UserController {
 	@RequestMapping("/add")
 	public void add(){
 		System.out.println("--------add----");
+
 		
 	}
 	@RequestMapping("/delete")
